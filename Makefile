@@ -16,8 +16,10 @@ SRCS	= Main.hs
 all: $(NAME)
 
 $(NAME): $(OBJS)
-		$(CC) -o $(NAME) $(SRCS)
+		$(CC) -o $(NAME) $(SRCS) -O2
 
+tests_run:
+			cd tests && $(MAKE)
 clean:
 	$(RM) *.o
 	$(RM) *.hi

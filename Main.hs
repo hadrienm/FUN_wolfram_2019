@@ -67,7 +67,7 @@ createLine90 (0:1:1:xs) new_line = createLine90 (1:1:xs) (new_line ++ [1])
 createLine90 (0:0:1:xs) new_line = createLine90 (0:1:xs) (new_line ++ [1])
 createLine90 (x:y:z:xs) new_line = createLine90 (y:z:xs) (new_line ++ [0])
 
-createLine110 :: [Int] -> [Int] -> [Int] --Créer une ligne de la régle 90 : window, old_line, new_line
+createLine110 :: [Int] -> [Int] -> [Int] --Créer une ligne de la régle 110 : window, old_line, new_line
 createLine110 [] [] = [1]
 createLine110 [] new_line = new_line
 createLine110 (_:[]) new_line = new_line
@@ -85,7 +85,7 @@ createLine old_line new_line 90 = createLine90 old_line new_line
 createLine old_line new_line 110 = createLine110 old_line new_line
 
 
-rule :: (Int, Int, Int, Int) -> [Int] -> Int -> IO () --Régle 30 : (start, lines, window, move) -> old_line
+rule :: (Int, Int, Int, Int) -> [Int] -> Int -> IO () --(start, lines, window, move) -> old_line
 rule (start, 0, window, move) _ _ = putStr ""
 rule (start, lines, window, move) old_line rules = do
     let new_line = createLine ([0,0] ++ old_line ++ [0,0]) [] rules
